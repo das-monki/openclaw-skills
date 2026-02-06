@@ -50,21 +50,25 @@
           ellie = {
             skill = ./skills/ellie.md;
             packages = [ ellie-cli.packages.${system}.default ];
+            secrets = [ "ELLIE_API_KEY" ];
           };
 
           clank = {
             skill = ./skills/clank.md;
             packages = [ clank.packages.${system}.default ];
+            secrets = [ "CLANK_API" ];
           };
 
           piper-tts = {
             skill = ./skills/piper-tts.md;
             packages = [ pkgs.piper-tts ];
+            secrets = [ ]; # No secrets required
           };
 
           whisper = {
             skill = ./skills/whisper.md;
             packages = [ pkgs.openai-whisper ];
+            secrets = [ ]; # No secrets required
           };
 
           # === Steipete tools ===
@@ -73,21 +77,25 @@
           summarize = {
             skill = "${steipete-tools}/tools/summarize/skills/summarize/SKILL.md";
             packages = [ steipete.summarize ];
+            secrets = [ ]; # Uses configured LLM provider
           };
 
           oracle = {
             skill = "${steipete-tools}/tools/oracle/skills/oracle/SKILL.md";
             packages = [ steipete.oracle ];
+            secrets = [ ]; # Uses configured LLM provider
           };
 
           gogcli = {
             skill = "${steipete-tools}/tools/gogcli/skills/gog/SKILL.md";
             packages = [ steipete.gogcli ];
+            secrets = [ ]; # No secrets required
           };
 
           sonoscli = {
             skill = "${steipete-tools}/tools/sonoscli/skills/sonoscli/SKILL.md";
             packages = [ steipete.sonoscli ];
+            secrets = [ ]; # No secrets required
           };
         }
       );
